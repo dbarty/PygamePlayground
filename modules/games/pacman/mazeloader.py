@@ -1,61 +1,30 @@
+import pygame
+from game.entity.entitygroup import EntityGroup
 from games.pacman.entity.pill import Pill
 from games.pacman.entity.wall import Wall
 
 class MazeLoader:
-    
-
     def load(self, filename):
-        print(filename)
+        entities = EntityGroup()
 
-        ew = 32  # entity width
-        eh = 32  # entity height
-        x = 0
-        y = 0
-
-        entities = []
-
+        # maybe outsource this double loop into an reuseable iterator
         with open(filename) as file:
-            for line in file.readlines():
-                el = []  # entity line
+            for y, line in enumerate(file.readlines()):
+                for x, char in enumerate(line):
+                    entity = self._createEntity(char)
 
-                x = 0
-                for char in line:
-                    
-                    if char == "#":
-                        entity = Wall()
-                        entity.position.x = x
-                        entity.position.y = y
-                    elif char == ".":
-                        entity = Pill()
-                        entity.position.x = x + 50
-                        entity.position.y = y + 32
-
-                    # set entity position
-                    entity.position.x = x
-                    entity.position.y = y
-
-                    # add entity to line
-                    el.append(entity)
-
-                    x += ew
-
-                # add entity line to entities
-                entities.append(el)
-                y += eh
-
-                    #print(char, sep=" ", end="")
-
-            #print(entities, entities[5][5].position)  
+                    if entity:
+                        entities.addXY(x, y, entity)
 
         return entities
+    
+    def _createEntity(self, char):
+        entity = None
 
+        if char == "#":
+            entity = Wall()
+        elif char == ".":
+            entity = Pill()
 
+        return entity
 
-
-
-
-
-        #print("lines", len(lines), "maxCol", max(map(len, lines)))
-
-        #pill = Pill()
-        #print(pill)

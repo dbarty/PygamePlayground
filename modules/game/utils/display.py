@@ -1,7 +1,7 @@
 import pygame
 
 class Display:
-    def __init__(self, size:tuple=(800, 600), *, caption=None) -> None:
+    def __init__(self, size:tuple=(1024, 1000), *, caption=None) -> None:
         pygame.init()  # Not sure, if there could be a better place, but good for now...
 
         if caption:

@@ -2,8 +2,8 @@ import pygame
 from pygame import Vector2
 
 class Entity:
-    def __init__(self):
-        self._position = Vector2()
+    def __init__(self, *, position=None):
+        self._position = position if position else Vector2()
 
     def __str__(self) -> str:
         return f"[Entity {type(self).__name__}]"
@@ -15,9 +15,13 @@ class Entity:
     @position.setter
     def position(self, position) -> None:
         #assert isinstance(position, Vector2) or None
-        if isinstance(position, Vector2):
-            position = Vector2()
+        #if isinstance(position, Vector2):
+        #position = Vector2()
         self._position = position
+
+    def moveTo(self, x, y) -> None:
+        self.position.x = x
+        self.position.y = y
 
     def update(self):
         raise NotImplementedError("The update() method is not implemented, yet!")

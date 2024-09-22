@@ -6,6 +6,7 @@ class Playground:
 
     def __str__(self):
         return f"[Playground camera={self.camera}]"
+    
     def __contains__(self, other):
         ...
 

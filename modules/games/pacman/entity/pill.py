@@ -3,4 +3,5 @@ from game.entity.entity import Entity
 
 class Pill(Entity):
     def draw(self, surface):
-        pygame.draw.circle(surface, "yellow", self.position, 10)
+        v = pygame.Vector2(self.position.x + 16, self.position.y + 16)
+        pygame.draw.circle(surface, "yellow", v, 5)
