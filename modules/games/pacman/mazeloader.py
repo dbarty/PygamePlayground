@@ -25,6 +25,8 @@ class MazeLoader:
             entity = Wall()
         elif char == ".":
             entity = Pill()
+        elif char == "*":
+            entity = Pill(power=True)
 
         return entity
 

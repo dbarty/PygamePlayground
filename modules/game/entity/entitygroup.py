@@ -1,3 +1,4 @@
+from pygame import Vector2
 from game.entity.entity import Entity
 
 class EntityGroup:
@@ -25,4 +26,4 @@ class EntityGroup:
 
     def draw(self, *args, **kwargs) -> None:
         for entity in self._items:
-            entity.draw(*args, **kwargs) 
+            entity.draw(*args, **kwargs)
