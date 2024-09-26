@@ -8,6 +8,9 @@ class Entity:
     def __str__(self) -> str:
         return f"[Entity {type(self).__name__}]"
 
+    def __repr__(self) -> str:
+        return self.__str__()
+    
     @property
     def position(self):
         return self._position

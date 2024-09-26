@@ -2,6 +2,7 @@
 
 from game.entity.entity import *
 from game.entity.entitygroup import *
+from game.entity.entitymanager import *
 
 __all__ = [
     "entity",

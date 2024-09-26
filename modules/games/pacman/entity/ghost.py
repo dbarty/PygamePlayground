@@ -1,3 +1,4 @@
+import pygame
 from game.entity import Entity
 from games.pacman.entity.ghosttype import GhostType
 
@@ -18,4 +19,9 @@ class Ghost(Entity):
         self._type = type
 
     def draw(self, surface):
-        ...
+        # https://www.pygame.org/docs/ref/color_list.html
+
+        color = self.type.value
+
+
+        pygame.draw.rect(surface, color, pygame.Rect(self.position.x + 5, self.position.y + 5, 22, 22))
