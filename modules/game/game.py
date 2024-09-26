@@ -35,3 +35,4 @@ class Game:
         self._display.beforeLoop()
         self._scene.animate(self)
         self._display.afterLoop()
+       

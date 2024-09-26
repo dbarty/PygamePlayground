@@ -39,4 +39,5 @@ class MazeScene(Scene):
     def animate(self, game):
         #self._manager.animate(game)
 
+        self._entities.update(game)
         self._entities.draw(game.display.surface)

@@ -1,5 +1,6 @@
 import pygame
 from pygame import Vector2
+from game.game import Game
 
 class Entity:
     def __init__(self, *, position=None):
@@ -26,8 +27,8 @@ class Entity:
         self.position.x = x
         self.position.y = y
 
-    def update(self):
-        raise NotImplementedError("The update() method is not implemented, yet!")
+    def update(self, game:Game):
+        ... # raise NotImplementedError("The update() method is not implemented, yet!")
         
     def draw(self, screen):
-        raise NotImplementedError("The draw() method is not implemented, yet!")
+        ... # raise NotImplementedError("The draw() method is not implemented, yet!")

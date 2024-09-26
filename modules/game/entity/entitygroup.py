@@ -12,12 +12,12 @@ class EntityGroup:
         return len(self._items)
     
     def add(self, entity: Entity):
-        """Add an entity to that group"""
+        "Add an entity to that group"
         assert isinstance(entity, Entity)
         self._items.append(entity)
 
     def addXY(self, x, y, entity:Entity) -> None:
-        """Add an entity to that group with a by x&y calculated grid position"""
+        "Add an entity to that group with a by x&y calculated grid position"
         entity.moveTo(x * self._gridstep, y * self._gridstep)
         self.add(entity)
 
