@@ -8,8 +8,6 @@ from game.game import Game
 from games.home.scene.mainmenu import MainMenu
 from games.pacman.screen.mazescreen import MazeScene
 
-# Hallo, das ist ein Test
-
 if __name__ == "__main__":
     game = Game()
     game.start(MazeScene())
