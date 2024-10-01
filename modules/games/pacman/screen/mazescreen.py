@@ -10,10 +10,13 @@ class MazeScene(Scene):
         super().__init__()
 
         loader = MazeLoader()
-        self._entities = loader.load(os.path.abspath('modules/games/pacman/data/levels/level1.txt'))
+        self._entities, self._grid = loader.load(os.path.abspath('modules/games/pacman/data/levels/level1.txt'))
+
+        #print(self._grid, self._grid.get(1,1))
 
         player = Player()
         player.moveTo(14*32, 14*32)
+        player.grid = self._grid  # Only temp to try...
 
         self._entities.add(player)
 

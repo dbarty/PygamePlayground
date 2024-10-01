@@ -19,7 +19,7 @@ class Display:
         return self._surface
     
     def beforeLoop(self):
-        ...
+        self._surface.fill("black")
 
     def afterLoop(self):
         pygame.display.flip()

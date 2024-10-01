@@ -11,15 +11,17 @@ class EntityGroup:
     def __len__(self) -> int:
         return len(self._items)
     
-    def add(self, entity: Entity):
+    def add(self, entity: Entity) -> None:
         "Add an entity to that group"
         assert isinstance(entity, Entity)
         self._items.append(entity)
+        self._sort()
 
     def addXY(self, x, y, entity:Entity) -> None:
         "Add an entity to that group with a by x&y calculated grid position"
         entity.moveTo(x * self._gridstep, y * self._gridstep)
         self.add(entity)
+        self._sort()
 
     def pairs(self):
         """
@@ -37,3 +39,6 @@ class EntityGroup:
     def draw(self, *args, **kwargs) -> None:
         for entity in self._items:
             entity.draw(*args, **kwargs)
+
+    def _sort(self) -> None:
+        self._items = sorted(self._items, key=lambda e: e.zindex)

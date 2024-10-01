@@ -5,6 +5,8 @@ from game.game import Game
 class Entity:
     def __init__(self, *, position=None):
         self._position = position if position else Vector2()
+        self._layer = 0
+        self._zindex = 0
 
     def __str__(self) -> str:
         return f"[Entity {type(self).__name__}]"
@@ -15,6 +17,22 @@ class Entity:
     @property
     def position(self):
         return self._position
+
+    @property
+    def layer(self) -> int:
+        return self._layer
+    
+    @layer.setter
+    def layer(self, layer:int) -> None:
+        self._layer = layer
+
+    @property
+    def zindex(self) -> int:
+        return self._zindex
+    
+    @zindex.setter
+    def zindex(self, zindex) -> None:
+        self._zindex = zindex
 
     @position.setter
     def position(self, position) -> None:
